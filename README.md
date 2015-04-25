@@ -19,7 +19,9 @@ ParamClass is a simple POJO with the fields "number" and "string".
 
 	ParamClass param = new ParamClass("a", 2);
 
-	Collection<ParamClass> results = jell.query("select 1 as number, 'b' as str where 'a' = @string and 2 = @number and 3 = 3", ParamClass.class, param);
+	String sql = "select 1 as number, 'b' as str where 'a' = @string and 2 = @number";
+
+	Collection<ParamClass> results = jell.query(sql, ParamClass.class, param);
 
 ### Executing
 

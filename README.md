@@ -3,6 +3,16 @@ jell
 
 Jell is a micro-ORM for Java. It allows you to easily execute SQL in Java, as well as automatically mapping parameters from an object and query results back to a specific class. If you don't specify a class, it will map to a dynamic object.
 
+## Maven
+
+You can get Jell from Maven Central.
+
+    <dependency>
+        <groupId>com.noelherrick</groupId>
+        <artifactId>jell</artifactId>
+        <version>0.1.1</version>
+    </dependency>
+
 ## Examples
 
 ### Creating a jell instance
@@ -51,7 +61,6 @@ I wanted something similar to dynamic objects in .NET, but Java does not help me
     for (Dyno dyno : dynos1) {
         System.out.println(dyno.str("title"));
     }
-
 
 ## The origin
 

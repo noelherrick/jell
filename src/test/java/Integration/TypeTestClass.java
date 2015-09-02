@@ -2,6 +2,7 @@ package Integration;
 
 
 import java.util.Date;
+import java.time.LocalDate;
 
 public class TypeTestClass
 {
@@ -11,4 +12,5 @@ public class TypeTestClass
     public boolean booleanField;
     public double doubleField;
     public Date dateField;
+    public LocalDate localDateField;
 }

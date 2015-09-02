@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.*;
+import java.time.LocalDate;
 
 public class PojoTests
 {
@@ -160,8 +161,9 @@ public class PojoTests
         typeTestClass.floatField = 3.44f;
         typeTestClass.doubleField = 213213.33;
         typeTestClass.dateField = new Date();
+        typeTestClass.localDateField = LocalDate.now();
 
-        Collection<TypeTestClass> results = jell.query("Select @booleanField as booleanField, @byteField as byteField, @longField as longField, @floatField as floatField, @doubleField as doubleField, @dateField as dateField", TypeTestClass.class, typeTestClass);
+        Collection<TypeTestClass> results = jell.query("Select @booleanField as booleanField, @byteField as byteField, @longField as longField, @floatField as floatField, @doubleField as doubleField, @dateField as dateField, @localDateField as localDateField", TypeTestClass.class, typeTestClass);
 
         assertEquals(1, results.size());
 
@@ -173,5 +175,6 @@ public class PojoTests
         assertTrue(typeTestClass.floatField == result.floatField);
         assertTrue(typeTestClass.doubleField == result.doubleField);
         assertEquals(typeTestClass.dateField, result.dateField);
+        assertEquals(typeTestClass.localDateField, result.localDateField);
     }
 }

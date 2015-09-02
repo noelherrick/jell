@@ -7,6 +7,7 @@ import java.lang.reflect.Field;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.time.LocalDate;
 
 public class ParameterConsumer
 {
@@ -48,7 +49,16 @@ public class ParameterConsumer
             Field field = clazz.getField(parameterName);
 
             // Prepared statement is 1-indexed
-            ps.setObject(i, field.get(object));
+            if (LocalDate.class.isAssignableFrom(field.getType()))
+            {
+                java.sql.Date date = java.sql.Date.valueOf((LocalDate)field.get(object));
+                ps.setDate(i, date);
+            }
+            else
+            {
+                ps.setObject(i, field.get(object));
+            }
+
 
             i++;
         }

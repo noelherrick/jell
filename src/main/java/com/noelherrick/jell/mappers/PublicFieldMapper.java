@@ -39,6 +39,10 @@ public class PublicFieldMapper implements Mapper
                     {
                         mappers.add( (rs, obj) -> field.set(obj, new java.util.Date(rs.getTimestamp(index+1).getTime())));
                     }
+                    else if (field.getType().equals(java.time.LocalDate.class))
+                    {
+                    	mappers.add( (rs, obj) -> field.set(obj, rs.getDate(index+1).toLocalDate()));
+                    }
                     else
                     {
                         mappers.add( (rs, obj) -> field.set(obj, rs.getObject(index+1)) );

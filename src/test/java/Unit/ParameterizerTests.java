@@ -22,6 +22,16 @@ public class ParameterizerTests
     }
 
     @Test
+    public void ParserLastParameterNameIncludesLastCharacter ()
+    {
+        Parameterizer parameterizer = new Parameterizer();
+
+        ParameterizedSql sql = parameterizer.parameterizeSql("select @param1, @param2");
+
+        assertEquals("param2", sql.parameterNames.toArray()[1]);
+    }
+
+    @Test
     public void ParserFindsAllParametersParens ()
     {
         Parameterizer parameterizer = new Parameterizer();

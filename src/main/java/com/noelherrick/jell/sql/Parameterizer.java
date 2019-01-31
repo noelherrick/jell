@@ -19,7 +19,7 @@ public class Parameterizer
             // We first get the parameter name
             int end = i+1;
 
-            while (end < (sql.length()-1) && sql.charAt(end) != ' ' && sql.charAt(end) != ',' && sql.charAt(end) != ')') {end++;}
+            while (end < (sql.length()) && sql.charAt(end) != ' ' && sql.charAt(end) != ',' && sql.charAt(end) != ')') {end++;}
 
             String parameterName = sql.substring(i+1, end);
 
